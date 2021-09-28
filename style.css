@@ -18,12 +18,20 @@ header {
   color: white;
 }
 
+header a {
+  text-decoration: none;
+}
+
+header a:visited, header a:link {
+  color: white;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
   width: 860px;
   justify-content: center;
-  margin: 0 auto;
+  margin: 25px auto;
 }
 
 .card {
@@ -60,4 +68,8 @@ main {
   margin: 5px 10px;
   flex-grow: 1;
   object-fit: cover;
+}
+
+.selected {
+  height: 500px !important;
 }

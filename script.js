@@ -10,8 +10,22 @@ async function apiResults() {
   return data;
 }
 
-function showDetails() {
-  
+function getElementOrClosest(target, className){
+  if(target.classList.contains(className)){
+    return target;
+  }
+  return target.closest(`.${className}`)
+}
+
+function showDetails(event) {
+  const target = getElementOrClosest(event.target, 'card');
+  const old = document.querySelector('.selected');
+
+  if (old) {
+    old.classList.remove('selected');
+  }
+
+  target.classList.add('selected');
 }
 
 async function createCards() {
@@ -26,7 +40,7 @@ async function createCards() {
     const h3 = document.createElement('h3');
 
     h3.innerHTML = character.name;
-    img.src = `${character.thumbnail.path}.jpg`;
+    img.src = `${character.thumbnail.path}.${character.thumbnail.extension}`;
     div.className = 'card';
 
     div.appendChild(img);
