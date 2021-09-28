@@ -9,6 +9,7 @@ async function apiResults() {
   const data = await response.json();
   return data;
 }
+
 // Função retirada do código da aula do Spotitrybe
 // https://github.com/tryber/sd-015-b-live-lectures/blob/lecture/spotitrybe/script.js
 function getElementOrClosest(target, className){
