@@ -7,9 +7,36 @@ const API_URL = `https://gateway.marvel.com:443/v1/public/characters?ts=${TIMEST
 async function apiResults() {
   const response = await fetch(API_URL);
   const data = await response.json();
-  console.log(data);
+  return data;
+}
+
+function showDetails() {
+  
+}
+
+async function createCards() {
+  const data = await apiResults();
+  const characters = data.data.results;
+
+  const main = document.querySelector('main');
+  
+  characters.forEach(character => {
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    const h3 = document.createElement('h3');
+
+    h3.innerHTML = character.name;
+    img.src = `${character.thumbnail.path}.jpg`;
+    div.className = 'card';
+
+    div.appendChild(img);
+    div.appendChild(h3);
+    div.addEventListener('click', showDetails)
+    main.appendChild(div);
+  });
+  console.log(characters);
 }
 
 window.onload = () => {
-  apiResults();
+  createCards();
 }
