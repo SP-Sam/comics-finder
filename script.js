@@ -19,15 +19,31 @@ function getElementOrClosest(target, className){
   return target.closest(`.${className}`)
 }
 
-function showDetails(event) {
+async function getDetails(name) {
+  const characterRequest = `${API_URL}&name=${name}`;
+  const response = await fetch(characterRequest);
+  const data = await response.json();
+
+  return data;
+}
+
+async function showDetails(event) {
   const target = getElementOrClosest(event.target, 'card');
   const old = document.querySelector('.selected');
+  const p = target.lastElementChild;
 
   if (old) {
     old.classList.remove('selected');
+    old.lastElementChild.innerHTML = '';
   }
 
   target.classList.add('selected');
+  const details = await getDetails(target.firstElementChild.nextElementSibling.innerText);
+  const results = details.data.results[0];
+  console.log(results);
+  p.innerHTML = `<em>${results.name}</em> - Aparece em ${results.comics.available} Quadrinhos
+    <a href="${results.urls[results.urls.length - 1].url}" target="_blank">Link para os quadrinhos</a>
+    <a href="${results.urls[0].url}" target="_blank">Mais detalhes do personagem</a>`
 }
 
 async function createCards() {
@@ -40,6 +56,7 @@ async function createCards() {
     const div = document.createElement('div');
     const img = document.createElement('img');
     const h3 = document.createElement('h3');
+    const p = document.createElement('p');
 
     h3.innerHTML = character.name;
     img.src = `${character.thumbnail.path}.${character.thumbnail.extension}`;
@@ -47,6 +64,7 @@ async function createCards() {
 
     div.appendChild(img);
     div.appendChild(h3);
+    div.appendChild(p);
     div.addEventListener('click', showDetails)
     main.appendChild(div);
   });
