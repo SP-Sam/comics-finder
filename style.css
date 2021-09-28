@@ -38,7 +38,7 @@ main {
   cursor: pointer;
   transition: 0.2s;
   box-shadow: 5px 5px 5px rgb(58, 58, 58);
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(180, 180, 180);
 }
 
 .card:hover {
