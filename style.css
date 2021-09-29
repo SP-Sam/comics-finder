@@ -26,6 +26,34 @@ header a:visited, header a:link {
   color: white;
 }
 
+.search {
+  display: flex;
+  width: 500px;
+  margin: 15px auto;
+  justify-content: center;
+}
+
+.search input {
+  width: 210px;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.search button {
+  width: 60px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.search button:hover {
+  background-color: rgb(194, 194, 194);
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -70,6 +98,11 @@ main {
   object-fit: cover;
 }
 
+.card p {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
 .selected {
-  height: 500px !important;
+  height: 350px !important;
 }
