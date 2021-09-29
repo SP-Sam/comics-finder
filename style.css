@@ -69,7 +69,7 @@ main {
   width: 250px;
   border: 1px solid gray;
   border-radius: 8px;
-  height: 240px;
+  height: 270px;
   margin: 10px;
   cursor: pointer;
   transition: 0.2s;
@@ -79,13 +79,14 @@ main {
 
 .card:hover {
   width: 255px;
-  height: 245px;
+  height: 280px;
   box-shadow: 10px 10px 5px rgb(58, 58, 58);
 }
 
 .card h3 {
   margin-top: 7px;
   flex-grow: 1;
+  text-align: center;
 }
 
 
@@ -105,4 +106,15 @@ main {
 
 .selected {
   height: 350px !important;
+}
+
+footer {
+  text-align: center;
+  background-color: red;
+  padding: 10px;
+  color: white;
+}
+
+footer a:visited, footer a:link {
+  color: white;
 }
