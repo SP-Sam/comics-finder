@@ -107,3 +107,14 @@ main {
 .selected {
   height: 350px !important;
 }
+
+footer {
+  text-align: center;
+  background-color: red;
+  padding: 10px;
+  color: white;
+}
+
+footer a:visited, footer a:link {
+  color: white;
+}
