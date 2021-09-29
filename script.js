@@ -12,7 +12,7 @@ async function apiResults() {
 
 // Função retirada do código da aula do Spotitrybe
 // https://github.com/tryber/sd-015-b-live-lectures/blob/lecture/spotitrybe/script.js
-function getElementOrClosest(target, className){
+function getElementOrClosest(target, className) {
   if(target.classList.contains(className)){
     return target;
   }
@@ -26,9 +26,9 @@ async function search() {
   const response = await fetch(characterRequest);
   const data = await response.json();
   
-  const teste = data.data.results
+  const result = data.data.results
   
-  createCardsForReal(teste);
+  createCardsForReal(result);
 }
 
 async function getDetails(name) {
