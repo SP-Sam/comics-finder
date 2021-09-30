@@ -22,6 +22,10 @@ header a {
   text-decoration: none;
 }
 
+header a:hover {
+  text-decoration: underline;
+}
+
 header a:visited, header a:link {
   color: white;
 }
@@ -85,7 +89,6 @@ main {
 
 .card h3 {
   margin-top: 7px;
-  flex-grow: 1;
   text-align: center;
   font-size: 1.05em;
 }
@@ -107,6 +110,15 @@ main {
 
 .selected {
   height: 350px !important;
+}
+
+.selected a:visited, .selected a:link {
+  color: rgb(32, 32, 32);
+}
+
+.selected a:hover {
+  color: red;
+  transition: 0.1s;
 }
 
 footer {
