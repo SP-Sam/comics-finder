@@ -53,10 +53,10 @@ async function showDetails(event) {
   const details = await getDetails(target.firstElementChild.nextElementSibling.innerText);
   const results = details.data.results[0];
 
-  p.innerHTML = `<p><em>${results.name}</em> - Aparece em ${results.comics.available} Quadrinhos:</p>
+  p.innerHTML = `<p>Aparece em ${results.comics.available} Quadrinhos</p>
     <p><a href="${results.urls[results.urls.length - 1].url}" target="_blank">Link para os quadrinhos</a></p>
-    <br>
-    <a href="${results.urls[0].url}" target="_blank">Mais detalhes do personagem</a>`
+    <a href="${results.urls[0].url}" target="_blank">Mais detalhes do personagem</a>
+  `
 }
 
 function deleteCardsForReal() {
@@ -105,5 +105,4 @@ window.onload = () => {
     deleteCardsForReal();
     search();
   });
-
 }
